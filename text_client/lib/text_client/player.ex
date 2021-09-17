@@ -39,18 +39,6 @@ defmodule TextClient.Player do
     |> play()
   end
 
-  def display(game) do
-    game
-  end
-
-  def prompt(game) do
-    game
-  end
-
-  def make_move(game) do
-    game
-  end
-
   defp exit_with_message(msg) do
     IO.puts(msg)
     exit(:normal)
