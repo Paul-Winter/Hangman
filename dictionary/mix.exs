@@ -3,9 +3,10 @@ defmodule Dictionary.MixProject do
 
   def project do
     [
-      app:     :dictionary,
+      app:     :hangman,
       version: "0.1.0",
       elixir:  "~> 1.12",
+      build_embedded: Mix.env == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -17,14 +18,14 @@ defmodule Dictionary.MixProject do
       mod: { Hangman.Application, [] },
       extra_applications: [
         :logger
-        ]
+      ]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # { :dictionary, path: "../dictionary" },
+      { :dictionary, path: "../dictionary" },
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
