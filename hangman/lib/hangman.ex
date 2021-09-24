@@ -1,10 +1,12 @@
 defmodule Hangman do
 
+  alias Hangman.Game
+
   def new_game() do
     Hangman.Server.start_link()
   end
 
-  def tally(game_pid) do
+  def tally(game_pid, guess) do
     GenServer.call(game_pid, { :tally })
   end
 
