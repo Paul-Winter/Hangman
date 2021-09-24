@@ -6,6 +6,7 @@ defmodule Hangman.MixProject do
       app: :hangman,
       version: "0.1.0",
       elixir: "~> 1.12",
+      build_embeeded: Mix.env == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -14,14 +15,18 @@ defmodule Hangman.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      mod: { Hangman.Application, [] },
+      extra_applications: [
+        :logger
+      ]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:dictionary, path: "../dictionary"},
+      { :dictionary, path: "../dictionary" },
     ]
   end
+
 end
