@@ -2,10 +2,10 @@
 
 <div class="row" >
     <div class="col-md-4" >
-
+        <%= render "_gallows.html", left: @tally.turns_left %>
     </div>
     <div class="col-md-7 offset-md-1" >
-        <%= "_status.html.eex", tally: @tally, conn: @conn%>
+        <%= render "_status.html", tally: @tally, conn: @conn%>
     </div>
 </div>
 
