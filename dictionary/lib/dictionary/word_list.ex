@@ -13,6 +13,7 @@ defmodule Dictionary.WordList do
     Agent.get(@me, &Enum.random/1)
   end
 
+  # "../../assets/слова.txt"
   def word_list do
     "../../assets/words.txt"
     |> Path.expand(__DIR__)

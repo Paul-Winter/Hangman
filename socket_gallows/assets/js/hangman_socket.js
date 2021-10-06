@@ -13,6 +13,7 @@ export default class HangmanSocket {
             .join()
             .receive("ok", resp => {
                 console.log("connected: " + resp)
+                
             })
             .receive("error", resp => {
                 alert(resp)
