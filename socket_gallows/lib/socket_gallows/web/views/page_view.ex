@@ -1,3 +1,3 @@
-defmodule SocketGallowsWeb.PageView do
-  use SocketGallowsWeb, :view
+defmodule SocketGallows.Web.PageView do
+  use SocketGallows.Web, :view
 end
