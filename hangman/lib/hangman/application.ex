@@ -3,15 +3,14 @@ defmodule Hangman.Application do
   use Application
 
   def start(_type, _args) do
-
-    import Supervisor.Spec
+    import Supervisor.Spec, warn: false
 
     children = [
       worker(Hangman.Server, []),
     ]
 
     options = [
-      name: Hangmans.Supervisor,
+      name:     Hangman.Supervisor,
       strategy: :simple_one_for_one,
     ]
 
