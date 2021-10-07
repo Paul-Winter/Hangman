@@ -7,14 +7,11 @@ defmodule Dictionary.WordList do
   end
 
   def random_word() do
-    # if :rand.uniform < 0.33 do
-    #   Agent.get(@me, fn _ -> exit(:boom) end)
-    # end
     Agent.get(@me, &Enum.random/1)
   end
 
-  # "../../assets/слова.txt"
   def word_list do
+    # "../../assets/слова.txt"
     "../../assets/words.txt"
     |> Path.expand(__DIR__)
     |> File.read!()
