@@ -53,7 +53,6 @@ let view = function(hangman) {
 }
 
 window.onload = function () {
-
     let tally = {
         turns_left: 7,
         letters:    ["a", "_", "c" ],
