@@ -3,15 +3,14 @@ defmodule Dictionary.Application do
   use Application
 
   def start(_type, _args) do
-
-    import Supervisor.Spec
+    import Supervisor.Spec, warn: false
 
     children = [
       worker(Dictionary.WordList, []),
     ]
 
     options = [
-      name: Dictioinary.Supervisor,
+      name:     Dictioinary.Supervisor,
       strategy: :one_for_one,
     ]
 
