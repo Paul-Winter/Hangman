@@ -2,12 +2,11 @@ const RESPONSES = {
     won:          [ "success", "You Won!" ],
     lost:         [ "danger",  "You Lost!" ],
     good_guess:   [ "success", "Good guess!" ],
-    bad_guess:    [ "warning",  "Bad guess!" ],
-    already_used: [ "info",     "You already guessed that" ],
-    initializing: [ "info",     "Let's Play!" ]
+    bad_guess:    [ "warning", "Bad guess!" ],
+    already_used: [ "info",    "You already guessed that" ],
+    initializing: [ "info",    "Let's Play!" ]
 }
 
-let Vue = require("vue/dist/vue.min.js")
 import HangmanSocket from "./hangman_socket"
 
 let view = function(hangman) {
@@ -52,15 +51,16 @@ let view = function(hangman) {
     return app;
 }
 
-window.onload = function () {
+window.onload = function() {
     let tally = {
         turns_left: 7,
         letters:    ["a", "_", "c" ],
         game_state: "initializing",
-        used:       []
+        used:       [ ]
     }
-    let hangman = new HangmanServer(tally)
+    let hangman = new HangmanSocket(tally)
     let app     = view(hangman)
     
     hangman.connect_to_hangman()
+    
 }

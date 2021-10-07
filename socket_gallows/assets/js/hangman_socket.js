@@ -1,8 +1,8 @@
-import { Socket } from "phoenix"
+import {Socket} from "phoenix"
 
 export default class HangmanSocket {
     constructor(tally) {
-        this.tally = tally
+        this.tally  = tally
         this.socket = new Socket("/socket", { })
         this.socket.connect()
     }
@@ -18,7 +18,7 @@ export default class HangmanSocket {
             .receive("error", resp => {
                 alert("Unable to join", resp)
                 throw(resp)
-            })        
+            })
     }
 
     setup_channel() {
@@ -39,7 +39,7 @@ export default class HangmanSocket {
     new_game() {
         this.channel.push("new_game", {})
     }
-
+    
     copy_tally(from) {
         for (let k in from) {
             this.tally[k] = from[k]
