@@ -1,6 +1,6 @@
 defmodule TextClient.Interact do
 
-  @hangman_server :hangman@IPMSYSTEM
+  @hangman_server :hangman@plasma
 
   alias TextClient.{Player, State}
 

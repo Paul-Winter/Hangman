@@ -1,5 +1,4 @@
-defmodule TextClient.Prompter do
-
+defmodule TextClient.Prompt do
   alias TextClient.State
 
   def accept_move(game = %State{}) do
@@ -8,11 +7,11 @@ defmodule TextClient.Prompter do
   end
 
   defp check_input({:error, reason}, _) do
-    IO.puts("Game ended: #{reason}")
+    IO.puts("Game ended because #{reason}")
     exit(:normal)
   end
 
-  defp check_input(:eof, _) do
+  defp check_input(_eof = nil, _) do
     IO.puts("Looks like you gave up...")
     exit(:normal)
   end
@@ -23,9 +22,8 @@ defmodule TextClient.Prompter do
       input =~ ~r/\A[a-z]\z/ ->
         Map.put(game, :guess, input)
       true ->
-          IO.puts "please enter a single lowercase letter"
-          accept_move(game)
+        IO.puts "please enter a lower-case letter"
+        accept_move(game)
     end
   end
-
 end
